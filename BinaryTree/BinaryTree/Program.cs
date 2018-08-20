@@ -10,10 +10,42 @@ namespace BinaryTree
     {
         static void Main(string[] args)
         {
+            BinaryTree();
+        }
+
+        static public void BinaryTree()
+        {
             Tree tree = new Tree();
-            tree.AddValue(10);
-            Console.WriteLine(tree);
-            Console.WriteLine("sdfdf");
+            Random rand = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                int num = rand.Next(1, 100);
+                tree.AddValue(num);
+            }
+
+            tree.Traverse();
+
+            Console.Write("Enter number to search for: ");
+            string input = Console.ReadLine();
+            int number;
+            Int32.TryParse(input, out number);
+            Node search = tree.Search(number);
+
+            if (search != null)
+            {
+                Console.WriteLine("Found: " + search.value + "\n");
+            }
+            else
+            {
+                Console.WriteLine("Not Found :(");
+            }
+
+            Console.ReadLine();
+
+            //Clear the console
+            Console.Clear();
+
+            BinaryTree();
         }
     }
 }
