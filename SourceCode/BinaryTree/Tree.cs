@@ -6,18 +6,27 @@ using System.Threading.Tasks;
 
 namespace BinaryTree
 {
+    /// <summary>
+    /// The Tree Class.
+    /// </summary>
     class Tree
     {
+        //The root of the tree.
         public Node root;
 
         /// <summary>
-        /// Constructor
+        /// Constructor.
         /// </summary>
         public Tree()
         {
+            //Set the root to null.
             this.root = null;
         }
 
+        /// <summary>
+        /// Add a value to the tree.
+        /// </summary>
+        /// <param name="val"></param>
         public void AddValue(int val)
         {
             //Create a new node.
@@ -31,19 +40,31 @@ namespace BinaryTree
             }
             else
             {
+                //Try to add the new node to the root.
                 this.root.AddNode(node);
             }
         }
 
+        /// <summary>
+        /// Traverse through the tree.
+        /// </summary>
         public void Traverse()
         {
-            root.Visit();
+            //Traverse the root.
+            root.Traverse();
         }
 
+        /// <summary>
+        /// Search through the tree.
+        /// </summary>
+        /// <param name="val">The value to search for.</param>
+        /// <returns>The found node.</returns>
         public Node Search(int val)
         {
+            //Start the search at the root.
             Node found = root.Search(val);
 
+            //Return what we found.
             return found;
         }
     }
