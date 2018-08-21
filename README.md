@@ -1,2 +1,2 @@
-# BinaryTree
-A Binary Tree in C#
+# Binary Search Tree
+A Binary Search Tree in C#
