@@ -18,18 +18,19 @@ namespace BinaryTree
         static void Main(string[] args)
         {
             //Do the thing.
-            BinaryTree();
+            //IntegerSearch();
+            StringSearch();
         }
 
         //Dose that thing.
-        static public void BinaryTree()
+        static public void IntegerSearch()
         {
             //Welcome the user.
             Console.WriteLine("Welcome to the Integer Binary Search Tree.");
             Console.WriteLine();
 
             //Create the Binary Tree.
-            Tree tree = new Tree();
+            BinaryTreeInt tree = new BinaryTreeInt ();
             
             //Create a Random number.
             Random rand = new Random();
@@ -63,6 +64,7 @@ namespace BinaryTree
 
             //Traverse the tree.
             tree.Traverse();
+            tree.Print();
 
             Console.Write("\b \b");
 
@@ -79,7 +81,7 @@ namespace BinaryTree
             Int32.TryParse(input, out number);
 
             //Search the Binary Tree.
-            Node search = tree.Search(number);
+            NodeInt search = tree.Search(number);
 
             //New Line.
             Console.WriteLine();
@@ -106,7 +108,106 @@ namespace BinaryTree
             Console.Clear();
 
             //Restart the Console App.
-            BinaryTree();
+            IntegerSearch();
+        }
+
+        //Dose that thing.
+        static public void StringSearch()
+        {
+            //Welcome the user.
+            Console.WriteLine("Welcome to the String Binary Search Tree.");
+            Console.WriteLine();
+
+            //Create the Binary Tree.
+            BinaryTreeString tree = new BinaryTreeString();
+
+            //Create a Random number.
+            Random rand = new Random();
+
+            //Print to the console.
+            Console.WriteLine("Here is 10 names:");
+
+            //List of names
+            List<string> names = new List<string>();
+
+            names.Add("Nathan");
+            names.Add("Jacob");
+            names.Add("Rosie");
+            names.Add("Tammy");
+            names.Add("Tom");
+            names.Add("Judy");
+            names.Add("Milly");
+            names.Add("Craig");
+            names.Add("Matt");
+            names.Add("Lucy");
+            names.Add("Zack");
+            names.Add("Casey");
+            names.Add("David");
+
+            //Get 10 random numbers.
+            for (int i = 0; i < names.Count; i++)
+            {
+                //Add the number to the Binary Tree.
+                tree.AddValue(names[i]);
+
+                //Print the number to the console.
+                Console.Write(names[i]);
+
+                //Insert the commas.
+                if (i < (names.Count - 1))
+                {
+                    Console.Write(",");
+                }
+            }
+
+            //Output to the console.
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Here they are sorted:");
+
+            //Traverse the tree.
+            tree.Traverse();
+            tree.Print();
+
+            Console.Write("\b \b");
+
+            //Output to the console.
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.Write("Enter number to search for: ");
+
+            //Get the input to search.
+            string input = Console.ReadLine();
+
+            //Search the Binary Tree.
+            NodeString search = tree.Search(input);
+
+            //New Line.
+            Console.WriteLine();
+
+            //If the returned node isnt null.
+            if (search != null)
+            {
+                //We found it.
+                Console.WriteLine("Found: " + search.value + " :) \n");
+            }
+            else
+            {
+                //Not found.
+                Console.WriteLine("Not Found :( \n");
+            }
+
+            //Print to the console.
+            Console.Write("Press enter to restart...");
+
+            //Pause.
+            Console.ReadLine();
+
+            //Clear the console.
+            Console.Clear();
+
+            //Restart the Console App.
+            StringSearch();
         }
     }
 }
